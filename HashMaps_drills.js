@@ -26,6 +26,37 @@ function removeDupes(string) {
   return noDupes._hashTable.sort((x, y) => x.value - y.value).map(x => x.key).join('');
 }
 
+function palindrome(string){
+  // INPUT: acecarr
+  // racecar
+  // OUTPUT: TRUE
+
+  // INPUT: north
+  // OUTPUT: false
+  // DEFININTION:
+  // not only a "paired" mirror letter (excpet possible center)
+  // but also, they need to be distanced according to their pair (MIRRORED)
+  // EXCEPT for the possible center, all letters need to occur in pairs of 2 and be spaced in a MIRROR 
+  // we dont care if its actually an english word
+  // we dont care about it being mirrored as input, because we just need ANY PERMUTATION 
+
+
+  let permPalin = new HashMap;
+  // INPUT: key: letter, value: # of times occured?
+  // if they are mirroring, then the length of the hashmap must be 1/2 the length of string or 1/2 string rounded up
+  
+  //permPalin.set(key, value); 
+  // d a d
+  for(let i=0; i < string.length; i++){
+    permPalin.set(string[i], i);
+  }
+  return permPalin;
+}
+
+function separateChaining(){
+    
+}
+
 function main() {
   // Once the MAX_LOAD_RATIO is EXCEEDED, then we increase the capacity by SIZE_RATIO
   HashMap.MAX_LOAD_RATIO = 0.5;
@@ -47,5 +78,7 @@ function main() {
 
 //WhatDoesThisDo();
 //console.log(removeDupes('abcb'));
-console.log(removeDupes('google'));
+//console.log(removeDupes('google'));
+console.log(palindrome('racecarebbhhzzyyn'));
+aboba 2n || 2n + 1 (technically 4n, 6n, 8n) abbccddeeffgghh
 //console.log(main());
