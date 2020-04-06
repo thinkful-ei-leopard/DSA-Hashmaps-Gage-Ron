@@ -6,6 +6,7 @@ class HashMap {
     this._capacity = initialCapacity;
     this._deleted = 0;
   }
+  // O(1) CONSTANT TIME
   get(key) {
     const index = this._findSlot(key);
     if (this._hashTable[index] === undefined) {
@@ -32,7 +33,6 @@ class HashMap {
       DELETED: false
     }; 
   }
-  // We are using Open Addressing for our collision
   delete(key) {
     const index = this._findSlot(key);
     const slot = this._hashTable[index];
@@ -47,7 +47,7 @@ class HashMap {
   _findSlot(key) {
     const hash = HashMap._hashString(key);
     const start = hash % this._capacity; // 345783 % 10 = 3
-
+    // We are using Open Addressing for our collision resolution mechanism
     for (let i=start; i<start + this._capacity; i++) {
       const index = i % this._capacity;
       const slot = this._hashTable[index];
